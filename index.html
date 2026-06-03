@@ -528,19 +528,19 @@ header::after{content:'';position:absolute;bottom:0;left:20px;right:20px;height:
 
 
 /* ── PRO BUNDLE BANNER (canvas bottom) ── */
-.pro-bundle-banner{display:flex;align-items:center;flex-shrink:0;margin:0;text-decoration:none;background:linear-gradient(90deg,#7a2e08,#c04a10,#9a3a0a);border-top:2px solid rgba(255,140,60,.4);transition:all .2s;position:relative;overflow:hidden;box-shadow:0 -2px 20px rgba(192,74,16,.25);}
+.pro-bundle-banner{display:flex;align-items:center;flex-shrink:0;margin:0;text-decoration:none;background:linear-gradient(100deg,#6b2706 0%,#b8430e 45%,#d4540f 70%,#b8430e 100%);position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 -2px 12px rgba(0,0,0,.25);transition:all .25s;}
 .pro-bundle-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(255,180,80,.12),transparent 55%);pointer-events:none;}
 .pro-bundle-banner::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,180,100,.6) 50%,transparent);}
 .pro-bundle-banner:hover{background:linear-gradient(90deg,#8a3510,#d4550f,#aa4010);box-shadow:0 -4px 28px rgba(192,74,16,.4);}
-.pbb-inner{display:flex;align-items:center;justify-content:space-between;width:100%;padding:12px 20px;gap:16px;}
+.pbb-inner{display:flex;align-items:center;justify-content:space-between;width:100%;padding:13px 24px;gap:20px;position:relative;z-index:2;}
 .pbb-left{flex:1;min-width:0;}
-.pbb-badge{display:inline-flex;align-items:center;gap:4px;font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,220,160,.9);margin-bottom:4px;font-weight:600;}
-.pbb-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#fff;line-height:1.2;margin-bottom:3px;}
-.pbb-price{color:#ffd080;font-weight:700;font-size:1.15rem;}
-.pbb-lifetime{font-size:.72rem;color:rgba(255,255,255,.6);font-style:italic;}
-.pbb-items{font-size:.68rem;color:rgba(255,255,255,.7);margin-top:2px;display:flex;gap:12px;flex-wrap:wrap;}
-.pbb-item{display:flex;align-items:center;gap:4px;}
-.pbb-cta{display:flex;align-items:center;gap:6px;padding:10px 20px;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.4);border-radius:25px;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:700;color:white;white-space:nowrap;flex-shrink:0;transition:all .18s;backdrop-filter:blur(4px);}
+.pbb-badge{display:inline-flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:#ffd9a0;margin-bottom:7px;font-weight:600;}
+.pbb-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:#fff;line-height:1.05;margin-bottom:6px;letter-spacing:.2px;text-shadow:0 1px 4px rgba(0,0,0,.35);}
+.pbb-price{color:#ffe4ad;font-weight:700;font-size:2rem;font-family:'Cormorant Garamond',serif;line-height:.9;text-shadow:0 2px 6px rgba(0,0,0,.4);letter-spacing:.5px;}
+.pbb-lifetime{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(255,255,255,.78);font-style:italic;letter-spacing:.4px;margin-top:3px;text-align:right;}
+.pbb-items{font-family:'DM Sans',sans-serif;font-size:.73rem;color:rgba(255,255,255,.88);margin-top:0;display:flex;gap:10px;align-items:center;flex-wrap:wrap;letter-spacing:.2px;}
+.pbb-item{display:flex;align-items:center;gap:6px;font-weight:500;}
+.pbb-cta{display:flex;align-items:center;gap:7px;padding:12px 24px;background:#fff;border:none;border-radius:9px;color:#b8430e;font-family:'Cinzel',serif;font-weight:600;font-size:.76rem;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;box-shadow:0 3px 12px rgba(0,0,0,.3);transition:all .2s;}
 .pro-bundle-banner:hover .pbb-cta{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.7);}
 
 
@@ -922,6 +922,65 @@ html, body { overflow: hidden !important; }
 .pbb-title { white-space: nowrap !important; font-size: 14px !important; }
 .pbb-badge { font-size: 10px !important; }
 
+
+/* ── Premium bundle banner extras ── */
+.pbb-right{display:flex;align-items:center;gap:16px;flex-shrink:0;}
+.pbb-pricing{display:flex;flex-direction:column;align-items:flex-end;}
+.pbb-dot{color:rgba(255,255,255,.4);font-size:.6rem;}
+.pbb-item-icon{font-size:.9rem;}
+.pbb-flame{font-size:.75rem;}
+.pro-bundle-banner:hover{filter:brightness(1.06);}
+.pro-bundle-banner:hover .pbb-cta{transform:translateY(-1px);box-shadow:0 5px 16px rgba(0,0,0,.4);}
+.pro-bundle-banner::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);animation:pbbShine 5s ease-in-out infinite;z-index:1;}
+@keyframes pbbShine{0%,100%{left:-100%;}50%{left:150%;}}
+@media (max-width:900px){
+  .pbb-items{display:none;}
+  .pbb-title{font-size:1.1rem !important;}
+  .pbb-inner{padding:10px 16px;gap:12px;}
+}
+
+
+/* ── PRO ACTIVE BANNER (paid users) ── */
+.pro-active-banner{flex-shrink:0;background:linear-gradient(100deg,#0f2818 0%,#1a4029 45%,#235235 70%,#1a4029 100%);position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(184,146,58,.25),0 -2px 12px rgba(0,0,0,.25);border-top:1px solid rgba(184,146,58,.3);}
+.pab-inner{display:flex;align-items:center;justify-content:space-between;width:100%;padding:13px 24px;gap:20px;position:relative;z-index:2;}
+.pab-left{display:flex;align-items:center;gap:14px;}
+.pab-crown{font-size:1.6rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));}
+.pab-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:#e8d9b5;line-height:1;letter-spacing:.3px;text-shadow:0 1px 4px rgba(0,0,0,.35);}
+.pab-sub{font-family:'DM Sans',sans-serif;font-size:.68rem;color:rgba(232,217,181,.7);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+.pab-badge{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:2px;color:#0f2818;background:linear-gradient(135deg,#d4ae65,#b8923a);padding:7px 16px;border-radius:20px;font-weight:600;white-space:nowrap;box-shadow:0 2px 8px rgba(184,146,58,.3);}
+.pro-active-banner::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(212,174,101,.1),transparent);animation:pbbShine 6s ease-in-out infinite;z-index:1;}
+
+
+/* ── App promo image in panel 2 ── */
+.app-promo-img{margin-bottom:13px;border-radius:10px;overflow:hidden;border:1px solid var(--border2);box-shadow:0 4px 16px rgba(0,0,0,.25);}
+.app-promo-img img{display:block;width:100%;height:auto;}
+
+
+/* ── Sponsor / Glen Recommends box ── */
+.sponsor-card{background:linear-gradient(135deg,rgba(184,146,58,.12),rgba(184,146,58,.04));border:1px solid rgba(184,146,58,.3);}
+.sponsor-heading{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--brass2);margin-bottom:9px;}
+.sponsor-img{border-radius:8px;overflow:hidden;margin-bottom:9px;border:1px solid var(--border2);}
+.sponsor-img img{display:block;width:100%;height:auto;}
+.sponsor-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--cream);line-height:1.15;margin-bottom:5px;}
+.sponsor-blurb{font-size:.74rem;color:var(--text2);line-height:1.55;font-style:italic;margin-bottom:11px;}
+.sponsor-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;background:linear-gradient(135deg,var(--brass),var(--brass2));border-radius:7px;font-size:.72rem;font-weight:600;color:var(--bg);text-decoration:none;transition:all .2s;}
+.sponsor-btn:hover{filter:brightness(1.08);transform:translateY(-1px);}
+
+
+/* ── Modal true-center fix (overrides any ancestor positioning) ── */
+.modal-overlay, .pro-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+  width: 100% !important; height: 100% !important;
+  max-width: 100vw !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important; padding: 16px !important;
+  box-sizing: border-box !important;
+}
+
 </style>
 <div id="vpi-planner">
 
@@ -1131,7 +1190,7 @@ window.submitGate = function(){
   fetch('https://app.kit.com/forms/9451860/subscriptions', {method:'POST',body:fd,headers:{'Accept':'application/json'}}).catch(function(){});
   // Update header
   var area = document.getElementById('loginArea');
-  if(area) area.innerHTML = '<div class="user-pill" onclick="window.saveProgress()" title="Click to save"><div class="user-dot"></div>' + name.split(' ')[0] + ' — Saved</div>';
+  if(area) area.innerHTML = '<div class="user-pill" onclick="window.saveProgress()" title="Saved to this browser"><div class="user-dot"></div>' + name.split(' ')[0] + ' — Saved</div>';
   // Close gate
   var gate = document.getElementById('entryGate');
   if(gate){ gate.style.cssText = 'display:none !important;'; }
@@ -1142,7 +1201,7 @@ window.submitGate = function(){
 <div class="modal-overlay" id="loginModal">
   <div class="modal">
     <h3>Save Your Garden</h3>
-    <div class="modal-sub">Sign in to save your plan and get sowing reminders</div>
+    <div class="modal-sub">Save your plan to this browser &amp; get free sowing reminders by email. <span style="opacity:.7;">(Cloud sync across devices coming soon.)</span></div>
     <input type="text" id="loginNameInput" placeholder="Your name"/>
     <input type="email" id="loginEmailInput" placeholder="Email address (for reminders)"/>
     <div class="modal-btns">
@@ -1292,16 +1351,40 @@ window.submitGate = function(){
     </div>
 
     <!-- PRO BUNDLE BANNER - bottom of canvas -->
-    <a class="pro-bundle-banner" href="https://veggiepatchideas.co.uk/shop/" target="_blank" rel="noopener">
+    <a class="pro-bundle-banner" id="bundleBanner" href="https://veggiepatchideas.co.uk/shop/" target="_blank" rel="noopener">
       <div class="pbb-inner">
         <div class="pbb-left">
-          <div class="pbb-badge">&#x1F525; Founding Member — Limited Time</div>
-          <div class="pbb-title">Veggie Patch Bundle <span class="pbb-price">&#163;9.99</span> <span class="pbb-lifetime">lifetime access</span></div>
-          <div class="pbb-items"><span class="pbb-item">&#x1F5FA; Planner Pro</span><span class="pbb-item">&#x1F393; Academy Premium</span><span class="pbb-item">&#x1F4D3; Diary Download</span></div>
+          <div class="pbb-badge"><span class="pbb-flame">&#x1F525;</span> Founding Member &middot; Limited Time</div>
+          <div class="pbb-title">The Veggie Patch Bundle</div>
+          <div class="pbb-items">
+            <span class="pbb-item"><span class="pbb-item-icon">&#x1F5FA;</span> Planner Pro</span>
+            <span class="pbb-dot">&bull;</span>
+            <span class="pbb-item"><span class="pbb-item-icon">&#x1F393;</span> Academy Pro</span>
+            <span class="pbb-dot">&bull;</span>
+            <span class="pbb-item"><span class="pbb-item-icon">&#x1F4D3;</span> Garden Diary</span>
+          </div>
         </div>
-        <div class="pbb-cta">Get the Deal &#8594;</div>
+        <div class="pbb-right">
+          <div class="pbb-pricing">
+            <div class="pbb-price">&#163;9.99</div>
+            <div class="pbb-lifetime">lifetime &middot; no subscription</div>
+          </div>
+          <div class="pbb-cta">Get the Deal &#8594;</div>
+        </div>
       </div>
     </a>
+    <div class="pro-active-banner" id="proActiveBanner" style="display:none;">
+      <div class="pab-inner">
+        <div class="pab-left">
+          <span class="pab-crown">&#x1F451;</span>
+          <div>
+            <div class="pab-title">Pro Garden Planner</div>
+            <div class="pab-sub">Founding Member &middot; Lifetime access unlocked</div>
+          </div>
+        </div>
+        <div class="pab-badge">&#x2713; ACTIVE</div>
+      </div>
+    </div>
     <div class="active-bed-bar" id="activeBedBar" style="display:none;">
       <span class="no-active-msg">No bed selected - click a bed or add one above</span>
     </div>
@@ -1701,7 +1784,7 @@ function initGate(){
         window.currentUser = u.name;
         window.currentEmail = u.email || '';
         var area = document.getElementById('loginArea');
-        if(area) area.innerHTML = '<div class="user-pill" onclick="window.saveProgress()" title="Click to save"><div class="user-dot"></div>'+u.name.split(' ')[0]+' — Saved</div>';
+        if(area) area.innerHTML = '<div class="user-pill" onclick="window.saveProgress()" title="Saved to this browser"><div class="user-dot"></div>'+u.name.split(' ')[0]+' — Saved</div>';
         var gate = document.getElementById('entryGate');
         if(gate) gate.style.display = 'none';
         return;
@@ -1762,9 +1845,12 @@ function updateBedLimitUI(){
 }
 function updateFreePlanBar(){
   var bar = document.getElementById('freePlanBar');
-  if(!bar) return;
-  if(isProOrTrial()){ bar.style.display = 'none'; }
-  else { bar.style.display = 'flex'; }
+  var bundleBanner = document.getElementById('bundleBanner');
+  var proBanner = document.getElementById('proActiveBanner');
+  var pro = isProOrTrial();
+  if(bar) bar.style.display = pro ? 'none' : 'flex';
+  if(bundleBanner) bundleBanner.style.display = pro ? 'none' : 'flex';
+  if(proBanner) proBanner.style.display = pro ? 'flex' : 'none';
 }
 
 function confirmBed(){
@@ -1848,9 +1934,6 @@ function plantVeg(bedId,key){
   renderBedVegs(bedId);
   if(currentTab==='beds')renderBedsTab();
   if(currentTab==='companion')renderCompanionTab();
-  // Academy trigger after 3 plants
-  const total=Object.values(plantings).flat().length;
-  if(total===3)setTimeout(()=>showAcademyPromptToast(),1200);
 }
 function renderBedVegs(bedId){
   const b=beds.find(x=>x.id===bedId);if(!b)return;
@@ -1983,13 +2066,14 @@ function showVegInfo(key){
 
   // ── PANEL 2: Video, Companions, Featured, Academy, Products ──
   document.getElementById('rightContent2').innerHTML='<div class="vic">'+
-    '<div class="info-card"><div class="alc-section-label">&#127891; Growers Academy</div>'+buildLessonCard(key)+'</div>'+
+    '<div class="app-promo-img"><img src="https://veggiepatchideas.co.uk/wp-content/uploads/2026/05/app-images-sales2.png" alt="The Growers Academy app" loading="lazy"/></div>'+
+    '<div class="info-card">'+buildLessonCard(key)+'</div>'+
     
     (v.youtubeId?'<div class="info-card"><div class="card-label">Growing Guide Video</div><div class="video-wrap" id="videoWrap_'+key+'"><div class="video-placeholder" id="videoThumb_'+key+'"><img src="https://img.youtube.com/vi/'+v.youtubeId+'/mqdefault.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;border-radius:8px;" onerror="this.style.display=\'none\'"/><div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:7px;"><div class="play-btn"><svg width="16" height="16" viewBox="0 0 16 16"><polygon points="4,2 13,8 4,14" fill="var(--cream)"/></svg></div><p style="font-family:\'Cormorant Garamond\',serif;font-size:.85rem;font-style:italic;color:var(--text2);">How to Grow '+v.name+'</p></div></div></div></div>':'<div class="info-card"><div class="card-label">Growing Guide Video</div><p style="font-size:.75rem;color:var(--text3);font-style:italic;">Video coming soon.</p></div>')+
     '<div class="info-card"><div class="card-label">Companion Planting</div>'+compCard+'</div>'+
     (featHTML?'<div class="info-card"><div class="card-label">Featured Variety</div>'+featHTML+'</div>':'')+
-    acadHTML+
     (prods?'<div class="info-card"><div class="card-label">Hand-Picked Products</div>'+prods+'</div>':'')+
+    buildSponsorBox()+
     '</div>';
 
   // Update panel2 tabs to show it's now showing plant-related content
@@ -2016,7 +2100,19 @@ function buildCompanionCard(key){
   h+=(data.friends.length?data.friends.map(([k,r,b])=>itemHTML(k,r,b,'friend')).join(''):'<div style="font-size:.68rem;color:var(--text3);font-style:italic;padding:3px;">None listed</div>');
   h+='</div><div><div class="companion-col-label bad">'+xmk+' Avoid</div>';
   h+=(data.foes.length?data.foes.map(([k,r,b])=>itemHTML(k,r,b,'foe')).join(''):'<div style="font-size:.68rem;color:var(--text3);font-style:italic;padding:3px;">No conflicts</div>');
-  return h+'</div></div>';
+  h+='</div></div>';
+  // Blur + lock for free users
+  if(!isProOrTrial()){
+    return '<div style="position:relative;">'+
+      '<div style="filter:blur(5px);pointer-events:none;opacity:.45;">'+h+'</div>'+
+      '<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px;">'+
+      '<div style="font-size:1.5rem;">&#x1F512;</div>'+
+      '<div style="font-size:.62rem;letter-spacing:1.5px;color:var(--brass2);text-transform:uppercase;">Pro Feature</div>'+
+      '<div style="font-size:.78rem;color:var(--text2);line-height:1.55;font-style:italic;max-width:240px;">Get recommendations on what goes best with this veg &mdash; and what you should never plant alongside it.</div>'+
+      '<button class="pro-btn" onclick="window.openProModal()" style="font-size:.7rem;padding:7px 14px;margin-top:2px;">&#x1F513; Unlock &mdash; &pound;9.99</button>'+
+      '</div></div>';
+  }
+  return h;
 }
 function renderCompanionTab(){
   const c=document.getElementById('rightContent');
@@ -2199,14 +2295,14 @@ function doLogin(){
   .then(data => {
     closeLoginModal();
     const area = document.getElementById('loginArea');
-    area.innerHTML = '<div class="user-pill" onclick="window.saveProgress()" title="Click to save"><div class="user-dot"></div>' + name.split(' ')[0] + ' — Saved</div>';
+    area.innerHTML = '<div class="user-pill" onclick="window.saveProgress()" title="Saved to this browser"><div class="user-dot"></div>' + name.split(' ')[0] + ' — Saved</div>';
     showProToast('Welcome ' + name.split(' ')[0] + '! Your plan is saved ✔', 'green');
   })
   .catch(() => {
     // Still save locally even if Kit fails
     closeLoginModal();
     const area = document.getElementById('loginArea');
-    area.innerHTML = '<div class="user-pill" onclick="window.saveProgress()" title="Click to save"><div class="user-dot"></div>' + name.split(' ')[0] + ' — Saved</div>';
+    area.innerHTML = '<div class="user-pill" onclick="window.saveProgress()" title="Saved to this browser"><div class="user-dot"></div>' + name.split(' ')[0] + ' — Saved</div>';
   });
 }
 function saveProgress(){
@@ -2384,6 +2480,33 @@ const ACADEMY_LESSONS = {
   celery:     {course:5,lesson:3,title:'Irrigation',desc:'Consistent watering for demanding crops like celery.',free:false},
 };
 function getLesson(key){ return ACADEMY_LESSONS[key] || ACADEMY_LESSONS.default; }
+// ═══════════════════════════════════════════════════════════════════════════════
+// ★★★ GLEN — EDIT YOUR SPONSOR / RECOMMENDED PRODUCT HERE ★★★
+// Just change the text and link below. To hide the box, set enabled: false
+// ═══════════════════════════════════════════════════════════════════════════════
+const SPONSOR_BOX = {
+  enabled: true,
+  heading: "Glen Recommends",
+  title: "Premium Peat-Free Compost",
+  blurb: "My go-to compost for healthy seedlings and strong roots — what I use in my own raised beds.",
+  buttonText: "View on Amazon →",
+  link: "https://www.amazon.co.uk/?tag=funkycoconut-21",
+  imageUrl: ""   // optional: paste an image URL here, or leave "" for no image
+};
+
+function buildSponsorBox(){
+  var s = SPONSOR_BOX;
+  if(!s || !s.enabled) return '';
+  var img = s.imageUrl ? '<div class="sponsor-img"><img src="'+s.imageUrl+'" alt="'+s.title+'" loading="lazy"/></div>' : '';
+  return '<div class="info-card sponsor-card">'+
+    '<div class="sponsor-heading">'+s.heading+'</div>'+
+    img+
+    '<div class="sponsor-title">'+s.title+'</div>'+
+    '<div class="sponsor-blurb">'+s.blurb+'</div>'+
+    '<a class="sponsor-btn" href="'+s.link+'" target="_blank" rel="noopener sponsored">'+s.buttonText+'</a>'+
+    '</div>';
+}
+
 function buildLessonCard(key){
   const l=getLesson(key);
   const ce={1:'🌱',2:'🥗',3:'🍅',4:'🌿',5:'🔬',6:'📆'};
@@ -2430,6 +2553,9 @@ window.confirmPotatoType = confirmPotatoType;
 window.selectPotatoType = selectPotatoType;
 window.closePotatoModal = closePotatoModal;
 window.showVegInfo = showVegInfo;
+// Dev helper: window.testPro() to preview pro mode, window.testFree() to go back
+window.testPro = function(){ activatePro(true); switchTab(currentTab); if(selectedVeg) showVegInfo(selectedVeg); };
+window.testFree = function(){ isPro=false; isTrial=false; updateFreePlanBar(); updateBedLimitUI(); switchTab(currentTab); if(selectedVeg) showVegInfo(selectedVeg); };
 
 // ─── START APP ────────────────────────────────────────────────────────────────
 // Run after ALL consts (BED_TEMPLATES, ACADEMY_LESSONS) are defined
@@ -2529,7 +2655,7 @@ function welcomeBack(name){
 
 function updateLoginArea(name){
   const area = document.getElementById('loginArea');
-  if(area) area.innerHTML = '<div class="user-pill" onclick="window.saveProgress()" title="Click to save"><div class="user-dot"></div>' + name.split(' ')[0] + ' — Saved</div>';
+  if(area) area.innerHTML = '<div class="user-pill" onclick="window.saveProgress()" title="Saved to this browser"><div class="user-dot"></div>' + name.split(' ')[0] + ' — Saved</div>';
 }
 
 // Gate listeners handled in DOMContentLoaded above
