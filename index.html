@@ -1751,9 +1751,37 @@ function canAddBed(){ return isProOrTrial() || beds.length < FREE_BED_LIMIT; }
 
 function activatePro(showToast){
   isPro = true; isTrial = false;
+  saveProStatus();
   updateBedLimitUI();
   updateFreePlanBar();
   if(showToast) showProToast('Pro unlocked!','gold');
+}
+
+function saveProStatus(){
+  try { localStorage.setItem('vpi_pro_status', JSON.stringify({isPro:isPro, isTrial:isTrial, trialStart:trialStart})); } catch(e){}
+}
+
+// ═══ UNLOCK VIA PURCHASE LINK ═══
+// WooCommerce thank-you page links here as: ?unlock=VPI-FOUNDING-9576
+// To change/rotate the token, edit VALID_UNLOCK_TOKEN below.
+const VALID_UNLOCK_TOKEN = 'VPI-FOUNDING-9576';
+function checkUnlockToken(){
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var token = params.get('unlock');
+    if(token && token === VALID_UNLOCK_TOKEN){
+      activatePro(false);
+      saveProStatus();
+      // Clean the token out of the URL so it isn't bookmarked/shared from the address bar
+      if(window.history && window.history.replaceState){
+        params.delete('unlock');
+        var clean = window.location.pathname + (params.toString() ? '?'+params.toString() : '');
+        window.history.replaceState({}, document.title, clean);
+      }
+      // Welcome message
+      setTimeout(function(){ showProToast('\u{1F451} Welcome, Founding Member! Pro unlocked.','gold'); }, 600);
+    }
+  } catch(e){}
 }
 
 function activateTrial(){
@@ -2422,6 +2450,7 @@ function vpiInit(){
   var pm=document.getElementById('proModal');
   if(pm)pm.addEventListener('click',e=>{if(e.target===pm)closeProModal();});
   initProSystem();
+  checkUnlockToken();
   updateBedLimitUI();
   updateFreePlanBar();
   initGate();
